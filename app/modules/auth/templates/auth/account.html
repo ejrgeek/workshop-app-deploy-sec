@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Minha Conta{% endblock %}
+
+{% block content %}
+    <h1>Minha Conta</h1>
+    <div class="account-info">
+        <p><strong>Usuário:</strong> {{ current_user.username }}</p>
+        <p><strong>Email:</strong> {{ current_user.email }}</p>
+    </div>
+    <a href="{{ url_for('auth.logout') }}" class="btn btn-danger">Sair</a>
+{% endblock %}

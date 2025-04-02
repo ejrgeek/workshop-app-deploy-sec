@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Demonstração de Vulnerabilidade{% endblock %}
+
+{% block content %}
+    <h1>Demonstração de SQL Injection</h1>
+    <div class="alert alert-danger">
+        <strong>Atenção:</strong> Esta página contém uma vulnerabilidade proposital para fins educacionais.
+    </div>
+    
+    <form method="POST" action="{{ url_for('employee.vulnerable_employee_detail') }}">
+        <div class="form-group">
+            <label>ID do Funcionário (tente: 1 OR 1=1--)</label>
+            <input type="text" name="employee_id" class="form-control" placeholder="Ex: 1">
+        </div>
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+    
+    {% if employee %}
+    <div class="employee-details mt-4">
+        <h3>Detalhes do Funcionário</h3>
+        <pre>{{ employee|tojson|safe }}</pre>
+    </div>
+    {% endif %}
+    
+    <div class="mt-5">
+        <h3>Exemplos para testar:</h3>
+        <ul>
+            <li><code>1 OR 1=1--</code> - Lista todos os funcionários</li>
+            <li><code>1; DROP TABLE employee--</code> - Tentativa de destruição (não funcionará com SQLite)</li>
+            <li><code>1 UNION SELECT password FROM user--</code> - Tentativa de extrair senhas</li>
+        </ul>
+    </div>
+{% endblock %}

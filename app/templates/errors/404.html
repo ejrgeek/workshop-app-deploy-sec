@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <h1>404 - Página Não Encontrada</h1>
+    <p>A página que você está procurando não existe ou foi movida.</p>
+    <a href="{{ url_for('employee.list_employees') }}" class="btn">Voltar à página inicial</a>
+</div>
+{% endblock %}

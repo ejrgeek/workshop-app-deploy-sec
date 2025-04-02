@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Sistema de Funcionários{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='errors.css') }}" />
+</head>
+<body>
+    <nav>
+        <a href="{{ url_for('employee.create_employee') }}">Cadastrar Funcionário</a>
+        <a href="{{ url_for('employee.list_employees') }}">Funcionários</a>
+        {% if current_user.is_authenticated %}
+            <a href="{{ url_for('auth.logout') }}">Sair</a>
+        {% else %}
+            <a href="{{ url_for('auth.login') }}">Login</a>
+            <a href="{{ url_for('auth.register') }}">Registrar</a>
+        {% endif %}
+    </nav>
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="flash-messages">
+                    {% for message in messages %}
+                        <div class="flash-message">{{ message }}</div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

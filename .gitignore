@@ -1,0 +1,32 @@
+# Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+*.env
+.env
+
+# Virtual Environment
+venv/
+ENV/
+.venv/
+.ENV/
+
+# Logs e Banco de Dados
+*.log
+*.sqlite3
+instance/
+migrations/
+
+# Configurações do Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Dependências
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Cache do Flask
+.flaskenv

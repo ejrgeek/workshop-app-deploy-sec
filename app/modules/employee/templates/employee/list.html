@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Funcionário{% endblock %}
+
+{% block content %}
+{% for emp in employees %}
+<tr>
+    <td>{{ emp.full_name }}</td>
+    <td>{{ emp.position }}</td>
+    <td>{{ emp.department }}</td>
+    <td>{{ emp.user.email }}</td>
+</tr>
+{% endfor %}
+{% endblock %}

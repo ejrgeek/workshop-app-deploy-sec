@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Editar Funcionário{% endblock %}
+
+{% block content %}
+{% if vulnerable %}
+<div class="alert alert-danger">
+    ⚠️ Esta visualização está usando consulta vulnerável!
+</div>
+{% endif %}
+
+<h2>{{ employee.full_name }}</h2>
+<p>Email: {{ user.email }}</p>
+<p>Telefone: {{ employee.metadata.get('phone') }}</p>
+
+{% endblock %}

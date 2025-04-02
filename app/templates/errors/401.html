@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <h1>401 - Não Autorizado</h1>
+    <p>Você precisa estar autenticado para acessar este recurso.</p>
+    <a href="{{ url_for('employee.list_employees') }}" class="btn">Fazer login</a>
+</div>
+{% endblock %}

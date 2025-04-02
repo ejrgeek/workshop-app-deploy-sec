@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="error-container">
+    <h1>403 - Acesso Proibido</h1>
+    <p>Você não tem permissão para acessar este recurso.</p>
+    <a href="{{ url_for('employee.list_employees') }}" class="btn">Voltar à página inicial</a>
+</div>
+{% endblock %}
